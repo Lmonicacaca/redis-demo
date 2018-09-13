@@ -1,0 +1,32 @@
+spring:
+  redis:
+    host: 192.168.1.7
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 10
+        max-active: 8
+  cache:
+    type: redis
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.6:3306/db_dcpay?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly
+    username: root
+    password: 123456
+  transaction:
+    rollback-on-commit-failure: true
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.example.redisdemo.domain.entity
+  mapper-locations: classpath:sqlMapper/**/**.xml
+
+mapper:
+  mappers: com.example.redisdemo.common.TkMapper
+  not-empty: false
+  identity: MYSQL
+server:
+  port: 9898
