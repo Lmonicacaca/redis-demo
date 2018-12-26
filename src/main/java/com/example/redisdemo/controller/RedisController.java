@@ -32,4 +32,10 @@ public class RedisController {
             return e.getMessage();
         }
     }
+
+    @RequestMapping("/testAop")
+    @ResponseBody
+    public String testAop(){
+        return "success";
+    }
 }

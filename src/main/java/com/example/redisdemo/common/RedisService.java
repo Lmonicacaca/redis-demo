@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisService {
 
+    private String lockUser;
+
     @Autowired
     RedisTemplate<String, Object> redisTemplate;
 
@@ -103,4 +105,6 @@ public class RedisService {
     public boolean hasKey(String key){
         return redisTemplate.hasKey(key);
     }
+
+
 }
