@@ -10,7 +10,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan("com.example.redisdemo.dao")
 @ComponentScan("com.example.redisdemo")
 public class RedisDemoApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(RedisDemoApplication.class, args);
     }

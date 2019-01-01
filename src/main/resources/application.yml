@@ -1,25 +1,25 @@
 spring:
-  redis:
-    host: 192.168.40.245
-    port: 6379
-    jedis:
-      pool:
-        max-idle: 8
-        min-idle: 10
-        max-active: 8
-  rabbitmq:
-    host: 192.168.40.244
-    port: 5672
-    username: guest
-    password: guest
+#  redis:
+#    host: 192.168.40.245
+#    port: 6379
+#    jedis:
+#      pool:
+#        max-idle: 8
+#        min-idle: 10
+#        max-active: 8
+#  rabbitmq:
+#    host: 192.168.40.244
+#    port: 5672
+#    username: guest
+#    password: guest
   cache:
     type: redis
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.40.245:3306/new_cash_bus?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly
-    username: admin
-    password: MyNewPASS5!
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly
+    username: root
+    password: 123456
 #  transaction:
 #    rollback-on-commit-failure: true
 
@@ -35,3 +35,8 @@ mapper:
   identity: MYSQL
 server:
   port: 9898
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true

@@ -6,7 +6,6 @@ import com.example.redisdemo.common.RedisService;
 import com.example.redisdemo.dao.ThelpDao;
 import com.example.redisdemo.domain.entity.Thelp;
 import com.example.redisdemo.service.RedisTestService;
-import org.springframework.jca.cci.CciOperationNotSupportedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
