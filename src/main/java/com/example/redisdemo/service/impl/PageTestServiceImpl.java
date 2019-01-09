@@ -41,15 +41,8 @@ public class PageTestServiceImpl implements PageTestService {
     @Override
     public List<TtradeFlowDto> queryTradeFlow() {
         List<TtradeFlow> ttradeFlowList = tradeFlowDao.queryAll();
-        List<TtradeFlowDto> returnList = new ArrayList<TtradeFlowDto>();
-        for(TtradeFlow entity:ttradeFlowList){
-            TtradeFlowDto ttradeFlowDto = TradeFlowMapper.TRADE_FLOW_MAPPER.tradeFlowToDto(entity);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date fcd = entity.getFcd();
-            String format = sdf.format(fcd);
-            ttradeFlowDto.setFcd(format);
-            returnList.add(ttradeFlowDto);
-        }
+        List<TtradeFlowDto> returnList = TradeFlowMapper.TRADE_FLOW_MAPPER.tradeFlowToDtos(ttradeFlowList);
+
         return returnList;
     }
 }
