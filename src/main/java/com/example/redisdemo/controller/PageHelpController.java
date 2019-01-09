@@ -27,7 +27,7 @@ public class PageHelpController {
     public Object toPage(@RequestBody PageRequest pageRequest){
         PageHelper.startPage(pageRequest.getPageNum(),pageRequest.getPageSize());
         List<PageTest> pageTestList = pageTestService.queryAll();
-        PageResponse<PageTest> pageInfo = new PageResponse<>(pageTestList.size(),pageTestList);
+        PageResponse<PageTest> pageInfo = new PageResponse<PageTest>(pageTestList.size(),pageTestList);
         return  pageInfo;
     }
 
@@ -36,7 +36,7 @@ public class PageHelpController {
     public Object pageMap(@RequestBody PageRequest pageRequest){
         PageHelper.startPage(pageRequest.getPageNum(),pageRequest.getPageSize());
         List<Map<String, Object>> queryMap = pageTestService.queryMap();
-        PageResponse<Map<String,Object>> returnMap = new PageResponse<>(queryMap.size(),queryMap);
+        PageResponse<Map<String,Object>> returnMap = new PageResponse<Map<String, Object>>(queryMap.size(),queryMap);
         return returnMap;
     }
 }

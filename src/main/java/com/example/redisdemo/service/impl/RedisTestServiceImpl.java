@@ -24,18 +24,19 @@ public class RedisTestServiceImpl implements RedisTestService {
     @Resource
     private TransactionTemplate transactionTemplate;
     @Override
-    public Object testRedis(String content) throws MyException{
-        Thelp thelp = new Thelp();
-        thelp.setContent(content);
-        thelp.setCatId(12);
-        thelp.setLang("121");
-        thelp.setTitle("gg2121g");
-        thelp.setCreateUser(12);
-        thelp.setCreateUserName("1");
-        thelp.setCreateTime(new Date());
+    public Object testRedis(final String content) throws MyException{
+
         //开启编程式事务
         return transactionTemplate.execute(new TransactionCallback<Boolean>() {
             public Boolean doInTransaction(TransactionStatus transactionStatus) {
+                Thelp thelp = new Thelp();
+                thelp.setContent(content);
+                thelp.setCatId(12);
+                thelp.setLang("121");
+                thelp.setTitle("gg2121g");
+                thelp.setCreateUser(12);
+                thelp.setCreateUserName("1");
+                thelp.setCreateTime(new Date());
                 int insert = thelpDao.insert(thelp);
                 if(insert>0){
                     redisService.multiTransaction();
