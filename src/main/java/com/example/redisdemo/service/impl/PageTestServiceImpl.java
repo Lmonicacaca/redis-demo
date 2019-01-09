@@ -43,7 +43,7 @@ public class PageTestServiceImpl implements PageTestService {
         List<TtradeFlow> ttradeFlowList = tradeFlowDao.queryAll();
         List<TtradeFlowDto> returnList = new ArrayList<TtradeFlowDto>();
         for(TtradeFlow entity:ttradeFlowList){
-            TtradeFlowDto ttradeFlowDto = TradeFlowMapper.TRADE_FLOW_MAPPER.tradeType(entity);
+            TtradeFlowDto ttradeFlowDto = TradeFlowMapper.TRADE_FLOW_MAPPER.tradeFlowToDto(entity);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date fcd = entity.getFcd();
             String format = sdf.format(fcd);
