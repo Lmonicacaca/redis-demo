@@ -3,9 +3,11 @@ package com.example.redisdemo.service.impl;
 import com.example.redisdemo.MapStruct.TradeFlowMapper;
 import com.example.redisdemo.dao.MappDao;
 import com.example.redisdemo.dao.PageTestDao;
+import com.example.redisdemo.dao.RBillStagesDao;
 import com.example.redisdemo.dao.TradeFlowDao;
 import com.example.redisdemo.domain.dto.TtradeFlowDto;
 import com.example.redisdemo.domain.entity.PageTest;
+import com.example.redisdemo.domain.entity.RBillStages;
 import com.example.redisdemo.domain.entity.TtradeFlow;
 import com.example.redisdemo.service.PageTestService;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,8 @@ public class PageTestServiceImpl implements PageTestService {
     private MappDao mappDao;
     @Resource
     private TradeFlowDao tradeFlowDao;
+    @Resource
+    private RBillStagesDao rBillStagesDao;
 
     @Override
     public List<PageTest> queryAll() {
@@ -44,5 +48,10 @@ public class PageTestServiceImpl implements PageTestService {
         List<TtradeFlowDto> returnList = TradeFlowMapper.TRADE_FLOW_MAPPER.tradeFlowToDtos(ttradeFlowList);
 
         return returnList;
+    }
+
+    @Override
+    public List<RBillStages> queryBillStages() {
+        return rBillStagesDao.queryAll();
     }
 }

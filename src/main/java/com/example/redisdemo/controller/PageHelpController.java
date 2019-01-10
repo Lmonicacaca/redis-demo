@@ -1,6 +1,7 @@
 package com.example.redisdemo.controller;
 
 import com.example.redisdemo.domain.entity.PageTest;
+import com.example.redisdemo.domain.entity.RBillStages;
 import com.example.redisdemo.domain.request.PageRequest;
 import com.example.redisdemo.domain.response.PageResponse;
 import com.example.redisdemo.service.PageTestService;
@@ -37,6 +38,14 @@ public class PageHelpController {
         PageHelper.startPage(pageRequest.getPageNum(),pageRequest.getPageSize());
         List<Map<String, Object>> queryMap = pageTestService.queryMap();
         PageResponse<Map<String,Object>> returnMap = new PageResponse<Map<String, Object>>(queryMap.size(),queryMap);
+        return returnMap;
+    }
+    @RequestMapping("/billStagesQuery")
+    @ResponseBody
+    public Object billStagesQuery(@RequestBody PageRequest pageRequest){
+        PageHelper.startPage(pageRequest.getPageNum(),pageRequest.getPageSize());
+        List<RBillStages> queryMap = pageTestService.queryBillStages();
+        PageResponse<RBillStages> returnMap = new PageResponse<RBillStages>(queryMap.size(),queryMap);
         return returnMap;
     }
 }
