@@ -58,15 +58,7 @@ public class PageTestServiceImpl implements PageTestService {
     }
 
     @Override
-    public int deleteBatchBillStages(Map<String,Object> paramMap){
-        String billIds = String.valueOf(paramMap.get("billIds"));
-        String[] split = billIds.split(",");
-        List<String> list = new ArrayList<String>();
-        for(int i=0;i<split.length;i++){
-
-            list.add(split[i]);
-        }
-        JSONObject.toJSONString(list);
+    public int deleteBatchBillStages(List<String> list){
         return rBillStagesDao.deleteMany(list);
     }
 

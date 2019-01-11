@@ -2,11 +2,13 @@ package com.example.redisdemo.controller;
 
 import com.example.redisdemo.domain.entity.PageTest;
 import com.example.redisdemo.domain.entity.RBillStages;
+import com.example.redisdemo.domain.request.DeleteRequest;
 import com.example.redisdemo.domain.request.PageRequest;
 import com.example.redisdemo.domain.response.PageResponse;
 import com.example.redisdemo.service.PageTestService;
 import com.example.redisdemo.util.RequestUtil;
 import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,11 +53,8 @@ public class PageHelpController {
     }
     @RequestMapping("/billStagesDeleteBatch")
     @ResponseBody
-    public Object billStagesDeleteBatch(HttpServletRequest request){
-        Map<String, String[]> parameterMap = request.getParameterMap();
-        Map<String,Object> map = new HashMap<String, Object>();
-        map = RequestUtil.paramMap(map,parameterMap);
-        int result = pageTestService.deleteBatchBillStages(map);
+    public Object billStagesDeleteBatch(@RequestBody DeleteRequest deleteRequest){
+        int result = pageTestService.deleteBatchBillStages(deleteRequest.getList());
         return result;
     }
 }
