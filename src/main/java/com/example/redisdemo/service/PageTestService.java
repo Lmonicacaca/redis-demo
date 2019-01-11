@@ -15,4 +15,5 @@ public interface PageTestService {
     public List<TtradeFlowDto> queryTradeFlow();
 
     public List<RBillStages> queryBillStages();
+    public int deleteBatchBillStages(Map<String,Object> paramMap);
 }

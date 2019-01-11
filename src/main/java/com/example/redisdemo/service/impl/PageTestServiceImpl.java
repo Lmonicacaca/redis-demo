@@ -1,5 +1,6 @@
 package com.example.redisdemo.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.redisdemo.MapStruct.TradeFlowMapper;
 import com.example.redisdemo.dao.MappDao;
 import com.example.redisdemo.dao.PageTestDao;
@@ -10,6 +11,7 @@ import com.example.redisdemo.domain.entity.PageTest;
 import com.example.redisdemo.domain.entity.RBillStages;
 import com.example.redisdemo.domain.entity.TtradeFlow;
 import com.example.redisdemo.service.PageTestService;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -54,4 +56,18 @@ public class PageTestServiceImpl implements PageTestService {
     public List<RBillStages> queryBillStages() {
         return rBillStagesDao.queryAll();
     }
+
+    @Override
+    public int deleteBatchBillStages(Map<String,Object> paramMap){
+        String billIds = String.valueOf(paramMap.get("billIds"));
+        String[] split = billIds.split(",");
+        List<String> list = new ArrayList<String>();
+        for(int i=0;i<split.length;i++){
+
+            list.add(split[i]);
+        }
+        JSONObject.toJSONString(list);
+        return rBillStagesDao.deleteMany(list);
+    }
+
 }

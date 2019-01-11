@@ -57,7 +57,7 @@ public class RBillStages {
     @Column(name = "delete_flag")
     private String deleteFlag;
     @Column(name = "fcd")
-    private Date fcd;
+    private String fcd;
     @Column(name = "lcu")
     private String lcu;
     @Column(name = "lcd")
@@ -257,11 +257,11 @@ public class RBillStages {
         this.deleteFlag = deleteFlag;
     }
 
-    public Date getFcd() {
+    public String getFcd() {
         return fcd;
     }
 
-    public void setFcd(Date fcd) {
+    public void setFcd(String fcd) {
         this.fcd = fcd;
     }
 
