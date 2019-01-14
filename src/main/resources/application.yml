@@ -17,7 +17,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.40.245:3306/new_cash_bus?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly
+    url: jdbc:mysql://192.168.40.245:3306/security?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly
     username: admin
     password: MyNewPASS5!
 #  transaction:
